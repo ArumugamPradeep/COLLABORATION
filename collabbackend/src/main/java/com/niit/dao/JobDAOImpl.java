@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import com.niit.model.Job;
 
-@Repository("jobDAO")
+@Repository
 @Transactional
 
 public class JobDAOImpl implements JobDAO {
