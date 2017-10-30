@@ -24,7 +24,7 @@ public class BlogPost {
 	private String blogContent;
 	
 	@ManyToOne
-	private User postedBy; //postedbt_username->colm name fk references username in user table
+	private User postedBy; 
 	
 	private Date postedOn;
 	

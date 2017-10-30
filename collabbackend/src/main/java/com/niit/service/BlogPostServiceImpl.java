@@ -2,6 +2,8 @@ package com.niit.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,7 @@ import com.niit.model.BlogComment;
 import com.niit.model.BlogPost;
 
 @Service
+@Transactional
 public class BlogPostServiceImpl implements BlogPostService {
 
 	@Autowired

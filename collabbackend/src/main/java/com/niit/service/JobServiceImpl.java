@@ -12,7 +12,6 @@ import com.niit.model.Job;
 
 @Service
 @Transactional
-
 public class JobServiceImpl implements JobService {
 
 	@Autowired

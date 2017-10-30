@@ -41,6 +41,8 @@ app.controller('UserController', function($scope, UserService, $location,
 		})
 
 	}
+	
+	
 
 	$scope.login = function() {
 		console.log($scope.userObj)

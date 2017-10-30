@@ -1,38 +1,43 @@
 var app = angular.module("app", [ 'ngRoute', 'ngCookies' ])
 app.config(function($routeProvider) {
-	$routeProvider.when('/register', {
+	$routeProvider
+	.when('/register', {
 		templateUrl : 'views/registrationform.html',
 		controller : 'UserController'
-	}).when('/home', {
+	})
+	.when('/home', {
 		templateUrl : 'views/home.html'
-	}).when('/login', {
+	})
+	.when('/login', {
 		templateUrl : 'views/login.html',
 		controller : 'UserController'
-	}).when('/editprofile', {
+	})
+	.when('/editprofile', {
 		templateUrl : 'views/editprofile.html',
 		controller : 'UserController'
-	}).when('/addblogpost', {
+	})
+	.when('/addblogpost', {
 		templateUrl : 'views/blogpostform.html',
 		controller : 'BlogPostController'
-	}).when('/getblogs', {
+	})
+	.when('/getblogs', {
 		templateUrl : 'views/blogslist.html',
 		controller : 'BlogPostController' // c to v
-	}).when('/getblogbyid/:id', { // list of blgs approved
-		templateUrl : 'views/blogdetails.html', // details of approved blog
-												// blogpost + approval form
-		controller : 'BlogPostDetailController' // $scope.blogpost = select *
-												// from blogpost where id=?
-
-	}).when('/getapprovalform/:id', {
+	})
+	.when('/getblogbyid/:id', { 
+		templateUrl : 'views/blogdetails.html', 
+		controller : 'BlogPostDetailController' 											
+	})
+	.when('/getapprovalform/:id', {
 		templateUrl : 'views/blogapprovalform.html', // blogpost + textarea
 		controller : 'BlogPostDetailController' // $scope.blogpost = select *
 												// from blogpost where id=?
 	})
-
 	.when('/addjob', {
 		templateUrl : 'views/jobform.html',
-		controller : 'JobController'
-	}).when('/getalljobs', {
+		controller : 'JobController'		
+	})
+	.when('/getalljobs', {
 		templateUrl : 'views/jobslist.html',
 		controller : 'JobController'
 	})
@@ -54,9 +59,12 @@ app.run(function($rootScope, $cookieStore, UserService, $location) {
 			delete $rootScope.currentUser;
 			$cookieStore.remove('userDetails')
 			$location.path('/login')
-		}, function(response) {
+		},
+		function(response)
+		{
 			console.log(response.status)
-			if (response.status == 401) {
+			if (response.status == 401) 
+			{
 				console.log('error in logout')
 				delete $rootScope.currentUser;
 				$cookieStore.remove('userDetails')

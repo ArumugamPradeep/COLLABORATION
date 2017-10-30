@@ -26,7 +26,8 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/registeruser", method = RequestMethod.POST)
-	public ResponseEntity<?> registerUser(@RequestBody User user) {
+	public ResponseEntity<?> registerUser(@RequestBody User user) 
+	{
 		if (!userService.isUsernameValid(user.getUsername())) {
 			Error error = new Error(2, "Username already exists.. please enter different username");
 			return new ResponseEntity<Error>(error, HttpStatus.NOT_ACCEPTABLE);

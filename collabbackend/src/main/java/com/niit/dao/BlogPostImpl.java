@@ -45,12 +45,7 @@ public class BlogPostImpl implements BlogPostDAO {
 	@Override
 	public BlogPost getBlogById(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		BlogPost blogPost = (BlogPost) session.get(BlogPost.class, id); // select
-																		// *
-																		// from
-																		// blogpost
-																		// where
-																		// id=?
+		BlogPost blogPost = (BlogPost) session.get(BlogPost.class, id); 														
 		return blogPost;
 	}
 
