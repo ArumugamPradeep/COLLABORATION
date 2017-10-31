@@ -31,7 +31,7 @@ public class BlogPostImpl implements BlogPostDAO {
 		Session session = sessionFactory.getCurrentSession();
 
 		String queryStr = "";
-		if (approved == 1) // list of blogs approved
+		if (approved== 1) // list of blogs approved
 		{
 			queryStr = "from BlogPost where approved=" + approved;
 		} else

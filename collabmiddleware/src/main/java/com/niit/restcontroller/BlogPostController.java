@@ -51,11 +51,11 @@ public class BlogPostController {
 		}
 	}
 
-	@RequestMapping(value = "/getblogs/{approved}", method = RequestMethod.GET)
+	@RequestMapping(value="/getblogs/{approved}", method = RequestMethod.GET)
 	public ResponseEntity<?> getBlogs(@PathVariable int approved, HttpSession session) {
 
 		String username = (String) session.getAttribute("username");
-		if (username == null) {
+		if (username==null) {
 			Error error = new Error(5, "unauthorized access...");
 			return new ResponseEntity<Error>(error, HttpStatus.UNAUTHORIZED); // unauthorized
 		}

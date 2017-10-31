@@ -14,11 +14,11 @@ public class BlogComment {
 
 	private String commentText;
 	@ManyToOne
-	private User commentedBy; // FK commented by_username
+	private User commentedBy; 
 	private Date commentedOn;
 
 	@ManyToOne
-	private BlogPost blogPost; // Fk blogpost_id
+	private BlogPost blogPost; 
 
 	public int getId() {
 		return id;

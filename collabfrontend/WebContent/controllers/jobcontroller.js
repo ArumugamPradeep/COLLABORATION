@@ -26,8 +26,7 @@ app.controller('JobController', function($scope, $location, JobService) {
 	$scope.getJobDetails = function(jobId) {
 		$scope.showJobDetails = true
 		JobService.getJobDetails(jobId).then(function(response) {
-			$scope.job = response.data // job object results of the query -
-										// select * from job where id=jobid
+			$scope.job = response.data
 		}, function(response) {
 			console.log(response.data)
 			if (response.status == 401) {
@@ -45,6 +44,5 @@ app.controller('JobController', function($scope, $location, JobService) {
 			}
 		})
 	}
-	getAllJobs() // this stm gets executed automatically whenever the
-					// controller get instaniated
+	getAllJobs() 
 })

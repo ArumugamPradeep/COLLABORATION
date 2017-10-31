@@ -15,12 +15,19 @@ public class ProfilePicDAOImpl implements ProfilePictureDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	public void uploadProfilePic(ProfilePicture profilePicture) {
-		Session session=sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(profilePicture);
 
+	}
+
+	@Override
+	public ProfilePicture getProfilePic(String username) {
+		Session session = sessionFactory.getCurrentSession();
+		ProfilePicture profilePic = (ProfilePicture) session.get(ProfilePicture.class, username); 
+		return profilePic;
 	}
 
 }

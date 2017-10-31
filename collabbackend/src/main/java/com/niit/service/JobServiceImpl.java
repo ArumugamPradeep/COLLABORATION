@@ -1,9 +1,7 @@
 package com.niit.service;
 
 import java.util.List;
-
 import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +24,6 @@ public class JobServiceImpl implements JobService {
 	@Override
 	public List<Job> getAllJobs() {
 		return jobDAO.getAllJobs();
-
 	}
 
 	@Override

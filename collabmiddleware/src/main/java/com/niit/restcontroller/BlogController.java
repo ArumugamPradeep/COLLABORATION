@@ -47,7 +47,6 @@ public class BlogController {
 	@GetMapping(value = "/approveBlog/{blogid}")
 	public ResponseEntity<String> approveBlog(@PathVariable("blogid") int blogId) {
 		Blog blog = blogDAO.getBlog(blogId);
-		// sop
 		if (blogDAO.approveBlog(blog)) {
 			return new ResponseEntity<String>("Blog Approved", HttpStatus.OK);
 		} else {
