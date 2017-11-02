@@ -25,20 +25,24 @@ import com.niit.model.User;
 @ComponentScan("com.niit.model")
 
 public class DBConfig {
-	
+	public DBConfig() {
+		System.out.println("Config Instantiated");
+	}
+
 	@Bean
 	public SessionFactory sessionFactory() {
-		LocalSessionFactoryBuilder lsf= new LocalSessionFactoryBuilder(getDataSource());
-		
+		LocalSessionFactoryBuilder lsf = new LocalSessionFactoryBuilder(getDataSource());
+
 		Properties hibernateProperties = new Properties();
 		hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 		hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
 		hibernateProperties.setProperty("hibernate.show_sql", "true");
 		lsf.addProperties(hibernateProperties);
-		Class classes[]=new Class[] {User.class,BlogPost.class,Job.class,BlogComment.class,ProfilePicture.class,Friend.class};
+		Class classes[] = new Class[] { User.class, BlogPost.class, Job.class, BlogComment.class, ProfilePicture.class,
+				Friend.class };
 		return lsf.addAnnotatedClasses(classes).buildSessionFactory();
 	}
-	
+
 	@Bean
 	public DataSource getDataSource() {
 		BasicDataSource dataSource = new BasicDataSource();
@@ -48,14 +52,10 @@ public class DBConfig {
 		dataSource.setPassword("HR");
 		return dataSource;
 	}
-	
-	
+
 	@Bean
 	public HibernateTransactionManager hibTransManagement() {
 		return new HibernateTransactionManager(sessionFactory());
 	}
-	
-
-	
 
 }
