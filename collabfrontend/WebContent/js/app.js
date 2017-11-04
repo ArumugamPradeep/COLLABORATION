@@ -1,6 +1,7 @@
 var app = angular.module("app", [ 'ngRoute', 'ngCookies' ])
 app.config(function($routeProvider) {
-	$routeProvider.when('/register', {
+	$routeProvider
+	.when('/register', {
 		templateUrl : 'views/registrationform.html',
 		controller : 'UserController'
 	}).when('/home', {
@@ -48,7 +49,15 @@ app.config(function($routeProvider) {
 		templateUrl : 'views/suggestedusers.html',
 		controller : 'FriendController'
 	})
-
+	.when('/pendingrequests',{
+			templateUrl:'views/pendingrequests.html',
+			controller:'FriendController'
+		})
+		.when('/listoffriends',{
+			templateUrl:'views/listoffriends.html',
+			controller:'FriendController'
+		})
+		
 	.otherwise({
 		templateUrl : 'views/home.html'
 	})
