@@ -14,29 +14,32 @@ public class FriendServiceImpl implements FriendService {
 
 	@Autowired
 	private FriendDAO friendDAO;
+
 	@Override
 	public List<User> listOfSuggestedUsers(String username) {
 		return friendDAO.listOfSuggestedUsers(username);
 	}
+
 	@Override
 	public void friendRequest(Friend friend) {
-		// TODO Auto-generated method stub
-		
+		friendDAO.friendRequest(friend);
+
 	}
+
 	@Override
 	public List<Friend> pendingRequests(String toId) {
-		// TODO Auto-generated method stub
-		return null;
+		return friendDAO.pendingRequests(toId);
 	}
+
 	@Override
 	public void updateFriendRequest(Friend friend) {
-		// TODO Auto-generated method stub
-		
+		friendDAO.updatePendingRequest(friend);
+
 	}
+
 	@Override
 	public List<String> listOfFriends(String username) {
-		// TODO Auto-generated method stub
-		return null;
+		return friendDAO.listOfFriends(username);
 	}
 
 }
