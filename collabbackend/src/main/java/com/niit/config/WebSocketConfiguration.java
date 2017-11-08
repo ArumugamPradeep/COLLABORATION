@@ -10,7 +10,7 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 @Configuration
 @EnableWebSocketMessageBroker 
-@ComponentScan(basePackages = "com.niit")
+@ComponentScan(basePackages="com.niit")
 public class WebSocketConfiguration implements WebSocketMessageBrokerConfigurer {
 
 	@Override

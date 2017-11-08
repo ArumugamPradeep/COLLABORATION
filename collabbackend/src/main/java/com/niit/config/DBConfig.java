@@ -23,8 +23,8 @@ import com.niit.model.User;
 @Configuration
 @EnableTransactionManagement
 @ComponentScan("com.niit.model")
-
 public class DBConfig {
+	
 	public DBConfig() {
 		System.out.println("Config Instantiated");
 	}

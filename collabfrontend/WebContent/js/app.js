@@ -1,10 +1,10 @@
 var app = angular.module("app", [ 'ngRoute', 'ngCookies' ])
 app.config(function($routeProvider) {
-	$routeProvider.when('/register', {
+	$routeProvider
+	.when('/register', {
 		templateUrl : 'views/registrationform.html',
 		controller : 'UserController'
-	})
-	.when('/home', {
+	}).when('/home', {
 		templateUrl : 'views/home.html'
 	})
 	.when('/login', {
@@ -49,20 +49,15 @@ app.config(function($routeProvider) {
 		templateUrl : 'views/suggestedusers.html',
 		controller : 'FriendController'
 	})
-	.when('/pendingrequests', {
-		templateUrl : 'views/pendingrequests.html',
-		controller : 'FriendController'
-	})
-	.when('/listoffriends', {
-		templateUrl : 'views/listoffriends.html',
-		controller : 'FriendController'
-	})
-
-	.when('/chat', {
-		templateUrl : 'views/chat.html',
-		controller : 'ChatController'
-	})
-
+	.when('/pendingrequests',{
+			templateUrl:'views/pendingrequests.html',
+			controller:'FriendController'
+		})
+		.when('/listoffriends',{
+			templateUrl:'views/listoffriends.html',
+			controller:'FriendController'
+		})
+		
 	.otherwise({
 		templateUrl : 'views/home.html'
 	})
@@ -71,7 +66,7 @@ app.config(function($routeProvider) {
 app.run(function($rootScope, $cookieStore, UserService, $location) {
 	console.log('entering app.run function')
 	if ($rootScope.currentUser == undefined)
-		$rootScope.currentUser = $cookieStore.get('userDetails')
+		$rootScope.currentUser = $cookieStore.get('userframe')
 
 	$rootScope.logout = function() {
 		console.log('entering logout function')
@@ -90,15 +85,4 @@ app.run(function($rootScope, $cookieStore, UserService, $location) {
 			}
 		})
 	}
-
-	BlogPostService.getNotification().then(function(response) {
-		$rootScope.blogApprovalStatus = response.data 
-		$rootScope.approvalStatusLength = $rootScope.blogApprovalStatus.length 
-																				
-																				
-	}, function(response) {
-		if (response.status == 401)
-			$location.path('/login')
-	})
-
 })

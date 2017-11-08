@@ -10,7 +10,6 @@ import com.niit.model.User;
 
 @Service
 @Transactional
-
 public class UserServiceImpl implements UserService {
 
 	@Autowired

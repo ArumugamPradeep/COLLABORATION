@@ -51,11 +51,11 @@ public class BlogPostController {
 		}
 	}
 
-	@RequestMapping(value = "/getblogs/{approved}", method = RequestMethod.GET)
+	@RequestMapping(value="/getblogs/{approved}", method = RequestMethod.GET)
 	public ResponseEntity<?> getBlogs(@PathVariable int approved, HttpSession session) {
 
 		String username = (String) session.getAttribute("username");
-		if (username == null) {
+		if (username==null) {
 			Error error = new Error(5, "unauthorized access...");
 			return new ResponseEntity<Error>(error, HttpStatus.UNAUTHORIZED); // unauthorized
 		}
@@ -120,18 +120,6 @@ public class BlogPostController {
 		}
 		List<BlogComment> blogComments = blogPostService.getBlogComments(blogPostId);
 		return new ResponseEntity<List<BlogComment>>(blogComments, HttpStatus.OK);
-	}
-
-	@RequestMapping(value = "/getnotification", method = RequestMethod.GET)
-	public ResponseEntity<?> getNotification(HttpSession session) {
-		String username = (String) session.getAttribute("username");
-		if (username == null) {
-			Error error = new Error(5, "Unauthorized access");
-			return new ResponseEntity<Error>(error, HttpStatus.UNAUTHORIZED);
-		}
-
-		List<BlogPost> blogPostNotification = blogPostService.getNotification(username);
-		return new ResponseEntity<List<BlogPost>>(blogPostNotification, HttpStatus.OK);
 	}
 
 }

@@ -1,9 +1,7 @@
-/**
- * 
- */
 
-app.controller('UserController', function($scope, UserService, $location,
-		$rootScope, $cookieStore) {
+
+
+app.controller('UserController', function($scope, UserService, $location, $rootScope, $cookieStore) {
 
 	$scope.registerUser = function() {
 		/*

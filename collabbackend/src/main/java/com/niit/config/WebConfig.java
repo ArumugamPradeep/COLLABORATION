@@ -12,11 +12,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan("com.niit*")
-
+@ComponentScan("com.niit")
 public class WebConfig extends WebMvcConfigurerAdapter {
 	@Bean
-
 	public InternalResourceViewResolver getViewResolver() {
 
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

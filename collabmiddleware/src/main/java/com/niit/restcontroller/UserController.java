@@ -15,7 +15,6 @@ import com.niit.model.User;
 import com.niit.service.UserService;
 
 @Controller
-
 public class UserController {
 
 	@Autowired
@@ -25,7 +24,7 @@ public class UserController {
 		System.out.println("user controller");
 	}
 
-	@RequestMapping(value = "/registeruser", method = RequestMethod.POST)
+	@RequestMapping(value="/registeruser", method=RequestMethod.POST)
 	public ResponseEntity<?> registerUser(@RequestBody User user) 
 	{
 		if (!userService.isUsernameValid(user.getUsername())) {

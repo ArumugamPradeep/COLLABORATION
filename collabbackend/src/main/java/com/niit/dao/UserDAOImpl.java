@@ -12,7 +12,6 @@ import com.niit.model.User;
 
 @Repository
 @Transactional
-
 public class UserDAOImpl implements UserDAO {
 
 	@Autowired

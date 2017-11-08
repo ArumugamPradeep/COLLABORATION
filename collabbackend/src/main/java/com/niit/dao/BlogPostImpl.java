@@ -31,7 +31,7 @@ public class BlogPostImpl implements BlogPostDAO {
 		Session session = sessionFactory.getCurrentSession();
 
 		String queryStr = "";
-		if (approved == 1) // list of blogs approved
+		if (approved== 1) // list of blogs approved
 		{
 			queryStr = "from BlogPost where approved=" + approved;
 		} else
@@ -45,7 +45,7 @@ public class BlogPostImpl implements BlogPostDAO {
 	@Override
 	public BlogPost getBlogById(int id) {
 		Session session = sessionFactory.getCurrentSession();
-		BlogPost blogPost = (BlogPost) session.get(BlogPost.class, id);
+		BlogPost blogPost = (BlogPost) session.get(BlogPost.class, id); 														
 		return blogPost;
 	}
 
@@ -70,17 +70,6 @@ public class BlogPostImpl implements BlogPostDAO {
 		Session session = sessionFactory.getCurrentSession();
 		Query query = session.createQuery("from BlogComment where blogPost.id=" + blogPostId);
 		return query.list();
-	}
-
-	@Override
-	public List<BlogPost> getNotification(String username) {
-		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery(
-				"from BlogPost where postedBy.username=? and viewed=? and (approved=1 or rejectionReason is not null)");
-		query.setString(0, username);
-		query.setBoolean(1, false);
-		return query.list();
-
 	}
 
 }

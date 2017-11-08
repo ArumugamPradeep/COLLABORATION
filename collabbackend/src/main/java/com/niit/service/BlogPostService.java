@@ -18,7 +18,4 @@ public interface BlogPostService {
 	void addBlogComment(BlogComment blogComment);
 
 	List<BlogComment> getBlogComments(int blogPostId);
-	
-	public List<BlogPost> getNotification(String username);
-
 }

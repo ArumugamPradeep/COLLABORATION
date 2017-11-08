@@ -21,7 +21,6 @@ import com.niit.service.UserService;
 import com.niit.model.Error;
 
 @Controller
-
 public class JobController {
 
 	@Autowired

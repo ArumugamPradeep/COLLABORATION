@@ -44,7 +44,7 @@ public class ProfilePictureController {
 			return null;
 		}
 		ProfilePicture profilePicture = profilePictureService.getProfilePicture(username);
-		if (profilePicture == null) // is profilepic for the logged in user
+		if (profilePicture == null) 
 			return null;
 		else
 			return profilePicture.getImage(); // image of the user
